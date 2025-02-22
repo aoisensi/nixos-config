@@ -9,29 +9,36 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations = {
-      oxygen = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	modules = [
-          ./hosts/oxygen/configuration.nix
-	];
-      };
-    };
-
-    homeConfigurations = {
-      oxygen = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        oxygen = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-	  config.allowUnfree = true;
-	};
-	extraSpecialArgs = {
-          inherit inputs;
-	};
-	modules = [
-          ./home.nix
-	];
+          modules = [
+            ./hosts/oxygen/configuration.nix
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        oxygen = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = import inputs.nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./home.nix
+          ];
+        };
       };
     };
-  };
 }

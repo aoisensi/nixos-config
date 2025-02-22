@@ -1,10 +1,10 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home.packages = with pkgs; [
-    (vivaldi.overrideAttrs
-      (oldAttrs: {
-        dontWrapQtApps = false;
-        dontPatchELF = true;
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-      }))
+    (vivaldi.overrideAttrs (oldAttrs: {
+      dontWrapQtApps = false;
+      dontPatchELF = true;
+      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
+    }))
   ];
 }

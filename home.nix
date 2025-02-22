@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./browser.nix
     ./apps.nix
@@ -10,9 +11,9 @@
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
   };
-  
+
   programs.home-manager.enable = true;
-  
+
   home.packages = with pkgs; [
     git
     wget
