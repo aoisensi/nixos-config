@@ -4,6 +4,8 @@
     ./browser.nix
     ./apps.nix
     ./git.nix
+    ./programs.nix
+
   ];
 
   home = rec {
@@ -17,8 +19,8 @@
   home.packages = with pkgs; [
     git
     wget
+    go
     curl
     docker
-    go
   ];
 }
