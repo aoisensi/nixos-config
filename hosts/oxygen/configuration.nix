@@ -181,6 +181,10 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Enable the Bluetooth.
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
