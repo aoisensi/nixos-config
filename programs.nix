@@ -1,11 +1,9 @@
 { pkgs, ... }:
 {
-  programs = {
+  home.packages = with pkgs; [
     go
     deno
-    surrealdb
-    python
-    node
+    python3
     flutter
-  };
+  ];
 }
