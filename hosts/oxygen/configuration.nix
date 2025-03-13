@@ -153,6 +153,8 @@
 
   services.flatpak.enable = true;
 
+  services.envfs.enable = true;
+
   system.userActivationScripts.zshrc = "touch .zshrc";
 
   programs.steam = {
