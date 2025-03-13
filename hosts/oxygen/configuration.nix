@@ -151,6 +151,8 @@
     };
   };
 
+  services.flatpak.enable = true;
+
   system.userActivationScripts.zshrc = "touch .zshrc";
 
   programs.steam = {
